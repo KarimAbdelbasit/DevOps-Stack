@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-   name: My-project
+   name: my-project  # تغيير الاسم إلى أحرف صغيرة
 spec:
    replicas: 2
    selector:      # tells the controller which pods to watch/belong to
     matchLabels:
-     app: My-project
+     app: my-project  # تغيير الاسم إلى أحرف صغيرة
    template:
       metadata:
         labels:
-          app: My-project
+          app: my-project  # تغيير الاسم إلى أحرف صغيرة
       spec:
        containers:
-        - name: My-project
+        - name: my-project  # تغيير الاسم إلى أحرف صغيرة
           image: karimabdelbasit/pipeline-myproject
           imagePullPolicy: Always
           ports:
