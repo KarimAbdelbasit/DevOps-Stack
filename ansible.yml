@@ -1,11 +1,17 @@
-- hosts: all
-  become: true
-  tasks: 
-     - name: delete old deployment
-       command: kubectl delete -f /home/ubuntu/Deployment.yml
-     - name: delete old service
-       command: kubectl delete -f /home/ubuntu/Service.yml
-     - name: create new deployment
-       command: kubectl apply -f /home/ubuntu/Deployment.yml
-     - name: create new service
-       command: kubectl apply -f /home/ubuntu/Service.yml
+---
+- name: Build container with Ansible
+  hosts: localhost
+  tasks:
+    - name: delete old deployment
+      command: kubectl delete -f /home/ubuntu/Deployment.yml
+      ignore_errors: yes
+
+    - name: delete old service
+      command: kubectl delete -f /home/ubuntu/Service.yml
+      ignore_errors: yes
+
+    - name: create new deployment
+      command: kubectl apply -f /home/ubuntu/Deployment.yml
+
+    - name: create new service
+      command: kubectl apply -f /home/ubuntu/Service.yml
