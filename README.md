@@ -31,7 +31,7 @@ pipeline {
     stages {
         stage('Git checkout') {
             steps {
-                git 'https://github.com/KarimAbdelbasit/My-project.git'
+                git 'https://github.com/KarimAbdelbasit/DevOps-Stack.git'
             }
         }
         
